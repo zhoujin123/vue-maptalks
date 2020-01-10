@@ -10,12 +10,14 @@
     "dependencies": {
         "and": "0.0.3",
         "core-js": "^3.4.3",
+        "element-ui": "^2.13.0",
         "exports-loader": "^0.7.0",
         "imports-loader": "^0.8.0",
         "maptalks": "^0.46.0",
         "three-orbitcontrols": "^2.110.3",
         "three.js": "^0.77.1",
-        "vue": "^2.6.10"
+        "vue": "^2.6.10",
+        "vuex": "^3.1.2"
     },
     "devDependencies": {
         "@vue/cli-plugin-babel": "^4.1.0",

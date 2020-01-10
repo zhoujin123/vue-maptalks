@@ -1,19 +1,27 @@
 <template>
-  <!-- <div id="map" class="container"></div> -->
-  <div id="box" class="container"></div>
+  <div class="container">
+    <BaseMap />
+    <ScaleLength />
+  </div>
+  <!-- <div id="box" class="container"></div> -->
 </template>
 
 <script>
 import 'maptalks/dist/maptalks.css'
 import * as maptalks from 'maptalks'
 import * as THREE from 'three'
+import BaseMap from './components/BaseMap'
+import ScaleLength from './components/tools/ScaleLength'
 // import OrbitControls from "three/examples/js/controls/OrbitControls"
 
 export default {
   name: 'app',
+  components: {
+    BaseMap,
+    ScaleLength
+  },
   data(){
     return {
-      map: {},
       scene: null,
       camera: null,
       renderer: null,
@@ -83,38 +91,19 @@ export default {
     }
   },
   mounted(){
-    this.addBox()
-    this.$nextTick(() => {
-      // var map = new maptalks.Map('map', {
-      //   center: [-0.21322, 51.32442],
-      //   zoom: 14,
-      //   baseLayer: new maptalks.TileLayer('base', {
-      //     urlTemplate: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
-      //     subdomains: ['a','b','c','d'],
-      //     attribution: '&copy; <a href="http://osm.org">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/">CARTO</a>'
-      //   }),
-      //   layers: [
-      //     new maptalks.VectorLayer('v')
-      //   ]
-      // })
-      // this.map = map
-      // this.addMarkers()
-      // console.log(map)
-      // console.log(this.$refs.map)
-      // this.$refs.map = map
-    })
+    // this.addBox()
   }
 }
 
 </script>
 
 <style>
-html,body {
-  width: 100%;
-  height: 100%;
-}
-.container{
-  width: 100%;
-  height: 100%;
-}
+  html,body {
+    width: 100%;
+    height: 100%;
+  }
+  .container{
+    width: 100%;
+    height: 100%;
+  }
 </style>
