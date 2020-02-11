@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <BaseMap />
-    <ScaleLength />
+    <TopPanel />
   </div>
   <!-- <div id="box" class="container"></div> -->
 </template>
@@ -11,14 +11,14 @@ import 'maptalks/dist/maptalks.css'
 import * as maptalks from 'maptalks'
 import * as THREE from 'three'
 import BaseMap from './components/BaseMap'
-import ScaleLength from './components/tools/ScaleLength'
+import TopPanel from './panel/topPanel'
 // import OrbitControls from "three/examples/js/controls/OrbitControls"
 
 export default {
   name: 'app',
   components: {
     BaseMap,
-    ScaleLength
+    TopPanel
   },
   data(){
     return {

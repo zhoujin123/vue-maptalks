@@ -1,6 +1,6 @@
 <template>
     <div style="marginLeft: 8px">
-        <el-button size="mini" plain @click="onScale">测距</el-button>
+        <el-button size="mini" plain @click="onScale">测量面积</el-button>
     </div>
 </template>
 
@@ -8,10 +8,10 @@
 import * as maptalks from 'maptalks'
 import { mapState } from 'vuex'
 export default {
-    name: 'scale-length',
+    name: 'scale-area',
     data() {
         return {
-            distanceTool: {},
+            areaTool: {},
         }
     },
     computed: {
@@ -20,16 +20,18 @@ export default {
         }),
     },
     methods: {
-        initSacle() {
-            this.distanceTool = new maptalks.DistanceTool({
+        initarea() {
+            this.areaTool = new maptalks.AreaTool({
                 symbol: {
-                    lineColor: '#34495e',
+                    lineColor: '#1bbc9b',
                     lineWidth: 2,
+                    polygonFill: '#FFA500',
+                    polygonOpacity: 0.3,
                 },
                 vertexSymbol: {
                     markerType: 'ellipse',
-                    markerFill: '#1bbc96',
-                    markerLineColor: '#000',
+                    markerFill: '#34495e',
+                    markerLineColor: '#1bbc9b',
                     markerLineWidth: 3,
                     markerWidth: 10,
                     markerHeight: 10,
@@ -37,12 +39,10 @@ export default {
                 labelOptions: {
                     textSymbol: {
                         textFaceName: 'monospace',
-                        textFill: '#fff',
+                        textFill: '#F0E68C',
                         textLineSpacing: 1,
                         textHorizontalAlignment: 'right',
                         textDx: 15,
-                        markerLineColor: '#b4b3b3',
-                        markerFill: '#000',
                     },
                     boxStyle: {
                         padding: [6, 2],
@@ -62,29 +62,28 @@ export default {
                         markerLineWidth: 2,
                         markerWidth: 15,
                         markerHeight: 15,
-                        markerDx: 20,
+                        markerDx: 22,
                     },
                     {
                         markerType: 'x',
                         markerWidth: 10,
                         markerHeight: 10,
                         markerLineColor: '#fff',
-                        markerDx: 20,
+                        markerDx: 22,
                     },
                 ],
                 language: 'en-US',
             })
-            
         },
         onScale() {
-            this.distanceTool.on('drawend',() => {
-                this.distanceTool.disable()
+            this.areaTool.on('drawend', () => {
+                this.areaTool.disable()
             })
-            this.distanceTool.addTo(this.map)
+            this.areaTool.addTo(this.map)
         },
     },
     mounted() {
-        this.initSacle()
+        this.initarea()
     },
 }
 </script>
